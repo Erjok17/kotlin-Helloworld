@@ -6,6 +6,9 @@ The software prints a customized "Hello World" message with emoji support, demon
 
 [Software Demo Video](http://youtube.link.goes.here)
 
+# Youtube video link 
+https://youtu.be/8j-q_cqdfxc
+
 # Development Environment
 IDE: IntelliJ IDEA 2024.1 (Community Edition)
 
@@ -19,3 +22,4 @@ Version Control: Git/GitHub integrated via IntelliJ
 A list of websites that will help me throughout this project
   https://youtu.be/blKkRoZPxLc?si=BqihyskYwV0dP26p
   https://kotlinlang.org/docs/home.html
+  
