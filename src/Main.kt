@@ -74,37 +74,113 @@
 
 package com.practice.mathapp
 
-import kotlin.math.abs as absolute  // Using alias
+import kotlin.math.abs as absolute
 
-fun add(a: Int, b: Int): Int = a + b
+// Calculator class to organize operations
+class Calculator {
+ fun add(a: Int, b: Int): Int = a + b
+ fun subtract(a: Int, b: Int): Int = a - b
+ fun multiply(a: Int, b: Int): Int = a * b
+ fun divide(a: Int, b: Int): Double =
+  if (b != 0) a.toDouble() / b else Double.NaN
 
-fun subtract(a: Int, b: Int): Int = a - b
+ fun abs(value: Int): Int = absolute(value)
+}
 
-fun multiply(a: Int, b: Int): Int = a * b
+// Function to display the menu
+fun showMenu() {
+ println(
+  """
+        -------------------------
+        Select an operation:
+        1. Addition
+        2. Subtraction
+        3. Multiplication
+        4. Division
+        5. Absolute Difference
+        6. Quit
+        -------------------------
+        """.trimIndent()
+ )
+}
 
-fun divide(a: Int, b: Int): Double = a.toDouble() / b
+// Function to read an integer safely
+fun readInt(prompt: String): Int {
+ while (true) {
+  print(prompt)
+  val input = readlnOrNull()
+  try {
+   return input?.toInt() ?: throw NumberFormatException()
+  } catch (e: NumberFormatException) {
+   println("Invalid number. Please try again.")
+  }
+ }
+}
+
+// Function to pause and wait for user to continue
+fun pause() {
+ println("Press Enter to continue...")
+ readln()
+}
 
 fun main() {
- println("Enter your name:")
+ val calc = Calculator()
+
+ println("🔢 Welcome to the Kotlin Math Utility App! 🔢")
+ print("Enter your name: ")
  val name = readln()
- println("Hello, $name!\n")
+ println("Hello, $name! Let's begin.\n")
 
- print("Enter first number:\n>> ")
- val num1 = readln().toInt()
+ var running = true
+ while (running) {
+  showMenu()
+  val choice = readInt("Enter your choice (1–6): ")
 
- print("Enter second number:\n>> ")
- val num2 = readln().toInt()
+  if (choice == 6) {
+   println("Goodbye, $name! 👋")
+   running = false
+   continue
+  }
 
- val sum = add(num1, num2)
- val difference = subtract(num1, num2)
- val product = multiply(num1, num2)
- val quotient = divide(num1, num2)
- val absDifference = absolute(difference)
+  val num1 = readInt("Enter the first number: ")
+  val num2 = readInt("Enter the second number: ")
 
- println("\nResults:")
- println("Sum: $sum")
- println("Difference: $difference")
- println("Product: $product")
- println("Quotient: $quotient")
- println("Absolute Difference: $absDifference")
+  when (choice) {
+   1 -> {
+    val result = calc.add(num1, num2)
+    println("Result: $num1 + $num2 = $result")
+   }
+
+   2 -> {
+    val result = calc.subtract(num1, num2)
+    println("Result: $num1 - $num2 = $result")
+   }
+
+   3 -> {
+    val result = calc.multiply(num1, num2)
+    println("Result: $num1 × $num2 = $result")
+   }
+
+   4 -> {
+    val result = calc.divide(num1, num2)
+    if (result.isNaN()) {
+     println("Cannot divide by zero.")
+    } else {
+     println("Result: $num1 ÷ $num2 = $result")
+    }
+   }
+
+   5 -> {
+    val result = calc.abs(num1 - num2)
+    println("Absolute difference: |$num1 - $num2| = $result")
+   }
+
+   else -> println("Invalid choice. Please select a number between 1 and 6.")
+  }
+
+  pause()
+  println("\n-------------------------\n")
+ }
+
+ println("Thank you for using the Kotlin Math Utility App, $name! 🎉")
 }

@@ -22,4 +22,17 @@ Version Control: Git/GitHub integrated via IntelliJ
 A list of websites that will help me throughout this project
   https://youtu.be/blKkRoZPxLc?si=BqihyskYwV0dP26p
   https://kotlinlang.org/docs/home.html
-  
+
+# module 1 
+Project Title: Kotlin Practice App
+
+Description: A simple Kotlin program that accepts user input, performs math operations, and demonstrates Kotlin syntax.
+
+Features implemented;
+
+User greeting using input, Basic operations (Add, Subtract, Multiply, Divide, Absolute Difference), Calculator class with functions, Menu-driven loop with input validation, Use of Kotlin features like when, readlnOrNull, isNaN(), string templates, Input sanitization for integers, Modular, readable, commented code (100+ lines)
+
+
+Kotlin syntax and structure, Function definitions with and without return types, Input/output operations and validation, using when expressions vs. traditional if-else, writing clean, maintainable code using, classes and loops, and how to create a Kotlin project that is user-friendly and interactive.
+
+Link to video (https://youtu.be/RQJojYghUg0)
